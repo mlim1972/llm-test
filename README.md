@@ -38,9 +38,16 @@ As you save your project, VSCode will remember the kernel but if it does not, yo
 
 - From VSCode when opening any .ipynb files, click on "Select Kernel" -> "Python Environments..." and select your conda environment: pandasai
 
+### Keys
+Create a .env files and insert your keys there. This project uses OpenAI, Groq, and Anthropic keys. Don't worry, the .env file is includeded in the [.gitignore](.gitignore) file. The .env.sample provides a sample of the key names required. Your can get keys from:
+
+- [OpenAI Dashboard](https://platform.openai.com/api-keys)
+- [Groq Console](https://console.groq.com/keys)
+- [Anthropic Console](https://console.anthropic.com/settings/keys)
+
 ### Dev Container
 This project can be used as a Dev Container. More information can be found at https://containers.dev/
 
 ## Files
 - PandasAI.ipynb  -> Notebook sample about [PandasAI](https://docs.pandas-ai.com/)
-- 
+
