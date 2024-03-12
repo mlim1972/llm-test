@@ -1,0 +1,10 @@
+python-dotenv
+pandas
+pandasai
+pandasai[langchain]
+langchain
+langchain_experimental
+langchain_openai
+langchain-groq
+langchain-anthropic
+tabulate
