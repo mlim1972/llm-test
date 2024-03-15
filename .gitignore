@@ -1,8 +1,14 @@
 # MacOS system files
 .DS_Store
 
+# Project specific files
 cache/
 exports/
+*.db
+*.db.wal
+
+# LLM Model files
+*.gguf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

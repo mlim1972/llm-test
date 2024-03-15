@@ -38,6 +38,9 @@ As you save your project, VSCode will remember the kernel but if it does not, yo
 
 - From VSCode when opening any .ipynb files, click on "Select Kernel" -> "Python Environments..." and select your conda environment: pandasai
 
+### Setup
+After creating the environment with Conda and activating it, you should run [setup.sh](./setup.sh) 
+
 ### Keys
 Create a .env files and insert your keys there. This project uses OpenAI, Groq, and Anthropic keys. Don't worry, the .env file is includeded in the [.gitignore](.gitignore) file. The .env.sample provides a sample of the key names required. Your can get keys from:
 
@@ -49,5 +52,6 @@ Create a .env files and insert your keys there. This project uses OpenAI, Groq, 
 This project can be used as a Dev Container. More information can be found at https://containers.dev/
 
 ## Files
+- setup.sh -> Run this bash file to setup your environment
 - PandasAI.ipynb  -> Notebook sample about [PandasAI](https://docs.pandas-ai.com/)
-
+- DuckDBAI.ipynb  -> Notebook sample for [DuckDB-NSQL](https://huggingface.co/motherduckdb/DuckDB-NSQL-7B-v0.1-GGUF). You will not be able to run this notebook in GitHub Codespaces because it needs the [DuckDB-NSQL-7B-v0.1-q8_0.gguf](https://huggingface.co/motherduckdb/DuckDB-NSQL-7B-v0.1-GGUF) model locally and Codespaces has space restrictions
