@@ -9,6 +9,22 @@ PROMPT_TEMPLATE = """### Instruction:\n{instruction}\n\n### Input:\n{input}\n###
 INSTRUCTION_TEMPLATE = """Your task is to generate valid duckdb SQL to answer the following question{has_schema}"""  # noqa: E501
 ERROR_MESSAGE = "Quack! Much to our regret, SQL generation has gone a tad duck-side-down.\nThe model is currently not capable of crafting the desired SQL. \nSorry my duck friend.\n\nIf the question is about your own database, make sure to set the correct schema.\n\n```sql\n{sql_query}\n```\n\n```sql\n{error_msg}\n```"
 
+## Global variable dict to cache schema and connection
+cache = {}
+
+def get_schema_cache(connection: DuckDBPyConnection) -> str:
+    """
+    function to return schema given a connection object. 
+    The function will check the cache and return the shema if the connection is found, otherwise, it calls the get_schema function
+    and associates it with the connection object in the cache
+    """
+    if connection in cache:
+        return cache[connection]
+    else:
+        schema = get_schema(connection)
+        cache[connection] = schema
+        return schema
+
 
 def get_schema(connection: DuckDBPyConnection) -> str:
     """Get schema from DuckDB connection."""
@@ -60,17 +76,34 @@ def generate_prompt(question: str, schema: str) -> str:
 def generate_sql(
     question: str,
     connection: DuckDBPyConnection,
-    llama: Any,
+    llm: Any,
     max_tokens: int = 300,
     verbose: bool = False,
+    model: str = 'duckdb-nsql:7b-q8_0'
 ) -> [str, bool, str]:
-    schema = get_schema(connection)
+    
+    #schema = get_schema(connection)
+    schema = get_schema_cache(connection)
     prompt = generate_prompt(question, schema)
 
-    with pipes() as (out, err):
-        res = llama(prompt, temperature=0.1, max_tokens=max_tokens)
-    sql_query = res["choices"][0]["text"]
-    
+    # with pipes() as (out, err):
+    #     res = llm(prompt, temperature=0.1, max_tokens=max_tokens)
+    # sql_query = res["choices"][0]["text"]
+
+    sql_query = ''
+    temperature = 0.1
+
+    # check if llm has a function called generate
+    if hasattr(llm, 'invoke'):  # Ollama from Langchaing
+        r = llm.invoke(prompt=prompt)
+    elif hasattr(llm, 'generate'):  # ollama from Ollama
+        r = llm.generate(prompt=prompt, model=model)
+        sql_query = r['response']
+    else:
+        with pipes() as (out, err):
+            res = llm(prompt, temperature=temperature, max_tokens=max_tokens)
+        sql_query = res["choices"][0]["text"]
+
     is_valid, error_msg = validate_sql(sql_query, schema)
 
     if verbose:
