@@ -63,5 +63,10 @@ Create a .env files and insert your keys there. Use the [.env.sample](.env.sampl
 - DuckDBAI.ipynb  -> Notebook sample for [DuckDB-NSQL](https://huggingface.co/motherduckdb/DuckDB-NSQL-7B-v0.1-GGUF)
 - DuckDBAI2.ipynb  -> Notebook sample for [DuckDB-NSQL](https://huggingface.co/motherduckdb/DuckDB-NSQL-7B-v0.1-GGUF) served by Ollama
 
+# Ollama
+Some tests are using Ollama to run local models. Instructions to install Ollama can be found at [https://ollama.com/](https://ollama.com/) with the following models:
+- openchat:7b-v3.5-0106-q5_K_M
+- mistral
+
 # Limitations
-- GitHub Codespaces can be with [PandasAI.ipynb]() but will not work with [DuckDBAI.ipynb]() or [DuckDBAI2.ipynb]() because of size limitations
+- GitHub Codespaces can be with [PandasAI.ipynb](./PandasAI.ipynb) but will not work with [DuckDBAI.ipynb](./DuckDBAI.ipynb) or [DuckDBAI2.ipynb](./DuckDBAI2.ipynb) because of size limitations
