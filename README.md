@@ -18,6 +18,7 @@ Download and install miniforge from: https://conda-forge.org/miniforge/
 For MacOS, you can use [Homebrew](https://brew.sh/)
 ```bash
 brew install --cask miniforge
+conda init zsh
 ```
 More information: https://kirenz.github.io/codelabs/codelabs/miniforge-setup/
 
@@ -39,6 +40,15 @@ conda activate llmtest
 - Get dependencies to the environment. Run the following in the terminal after activating the conda environment
 ```bash
 pip install -r requirements.txt
+```
+or run the setup script 
+```bash
+./setup.sh
+```
+
+To deactivate your conda environment, you need call the following command:
+```bash
+conda deactivate
 ```
 
 Now you're ready to work in VSCode using Jupyter Notebook. You need to attach your conda environment as the notebook kernel.

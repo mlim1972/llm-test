@@ -93,16 +93,16 @@ def generate_sql(
     sql_query = ''
     temperature = 0.1
 
-    # check if llm has a function called generate
-    if hasattr(llm, 'invoke'):  # Ollama from Langchaing
-        r = llm.invoke(prompt=prompt)
-    elif hasattr(llm, 'generate'):  # ollama from Ollama
-        r = llm.generate(prompt=prompt, model=model)
-        sql_query = r['response']
-    else:
+    try:
         with pipes() as (out, err):
             res = llm(prompt, temperature=temperature, max_tokens=max_tokens)
-        sql_query = res["choices"][0]["text"]
+            sql_query = res["choices"][0]["text"]
+    except Exception as e:
+        if hasattr(llm, 'invoke'):  # Ollama from Langchaing
+            r = llm.invoke(prompt=prompt)
+        elif hasattr(llm, 'generate'):  # ollama from Ollama
+            r = llm.generate(prompt=prompt, model=model)
+        sql_query = r['response']
 
     is_valid, error_msg = validate_sql(sql_query, schema)
 
