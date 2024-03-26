@@ -9,7 +9,20 @@ There are a few ways to isolate your system from this repo:
 - [Conda](https://docs.conda.io/). Quick instruction can be found below
 - [Development Containers](https://containers.dev/). This README will not go over this method
 
+## Clone the project
+Start by cloning the project and cd to the cloned project folder:
+```bash
+git clone https://github.com/mlim1972/llm-test.git
+cd llm-test
+```
+
 ## Setting up Conda
+If you do not have conda installed, you need to do so with the instructions below. You can check conda with the following command:
+```bash
+conda --version
+```
+If the above shows the version of conda installed, you can skip the Installing Conda section and go start from the Environment section. 
+
 ### Installing Conda
 1. Install mini-forge or mini-conda (uninstall Anaconda)
 
@@ -58,6 +71,9 @@ As you save your project, VSCode will remember the kernel but if it does not, yo
 
 ### Setup
 After creating the environment with Conda and activating it, you should run [setup.sh](./setup.sh) 
+```bash
+./setup.sh
+```
 
 # Keys
 Create a .env files and insert your keys there. Use the [.env.sample](.env.sample) file as reference. This project uses OpenAI, Groq, and Anthropic keys. Don't worry, the .env file is included in the [.gitignore](.gitignore) file. The .env.sample provides a sample of the key names required. Your can get keys from:
@@ -72,6 +88,10 @@ Create a .env files and insert your keys there. Use the [.env.sample](.env.sampl
 - PandasAI.ipynb  -> Notebook sample about [PandasAI](https://docs.pandas-ai.com/)
 - DuckDBAI.ipynb  -> Notebook sample for [DuckDB-NSQL](https://huggingface.co/motherduckdb/DuckDB-NSQL-7B-v0.1-GGUF)
 - DuckDBAI2.ipynb  -> Notebook sample for [DuckDB-NSQL](https://huggingface.co/motherduckdb/DuckDB-NSQL-7B-v0.1-GGUF) served by Ollama
+- chat.py. This is a [Streamlit](https://streamlit.io/) application that uses Ollama in a chat application. The following command is used to run it:
+```bash
+streamlit run chat.py
+```
 
 # Ollama
 Some tests are using Ollama to run local models. Instructions to install Ollama can be found at [https://ollama.com/](https://ollama.com/) with the following models:

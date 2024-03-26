@@ -50,7 +50,7 @@ pip install --upgrade pip
 # check that pandasai is installed by running `pip list | grep pandasai``
 # if not installed, run `pip install -r requirements.txt`
 output=$(pip list)
-if echo "$output" | grep -q "pandasai"; then
+if echo "$output" | grep -q "streamlit"; then
   echo "Dependencies are already installed."
 else
   echo "Missing dependencies. Running: pip install -r requirements..."
