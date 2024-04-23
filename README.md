@@ -100,9 +100,30 @@ Create a .env files and insert your keys there. Use the [.env.sample](.env.sampl
 streamlit run chat.py
 ```
 
+## Notebook Information
+This project is divided into different notebooks for each access and learning topics. Below is further description of each notebook:
+
+### DuckDB Notebooks
+[DuckDB](https://duckdb.org/) is a embedded relational database build from the ground up to assist in data analytic. It is one of the fastest DB project for it's speed and flexibility. Think of DuckDB as a more robust [SQLite](https://www.sqlite.org/).
+
+- DuckDBAI.ipynb. This notebook uses [llama.cpp](https://github.com/ggerganov/llama.cpp) for local inference against a local gguf model. You need to download the DuckDB-NSQL-7B-v0.1-q8_0.gguf model so this notebook can load it. The [setup.sh](./setup.sh) ensure you have all the necessary files and virtual environment ready to run all notebooks. This notebook queries a csv file using text to SQL prompting.
+- DuckDBAI2.ipynb. This notebook uses Ollama with the duckdb-nsql:7b-q8_0 model. This is similar DuckDBAI.ipynb but instead of a local inference, it uses Ollama.
+
+### Pandas Notebook
+The Pandas notebook uses a library called [PandasAI](https://docs.pandas-ai.com/en/latest/LLMs/llms/) to query a csv file using text to SQL and the Pandas library.
+Both DuckDB and Pandas notebook objective is show how we can use LLMs to query a DB (CSV file) using text to SQL prompting.
+
+### Langchain Notebooks
+The Langchain notebooks are example using langchain for document retrieval and RAG.
+
+- Langchain-Wikipedia.ipynb. This notebook shows an example of retrieving Wikipedia results and answering questions from the results.
+- Langchain-ChromaDB.ipynb. This notebook is an example of RAG. It uses an embedding model to create embeddings from documents. ChromaDB is used as the Vector Store and finally, it uses Ollama (and other providers) to respond to users inquiries.
+
+
 # Ollama
 Some tests are using Ollama to run local models. Instructions to install Ollama can be found at [https://ollama.com/](https://ollama.com/) with the following models:
 - llama3:8b-instruct-q8_0
+- duckdb-nsql:7b-q8_0
 - nomic-embed-text:latest
 
 # Limitations
