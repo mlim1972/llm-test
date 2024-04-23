@@ -50,6 +50,11 @@ conda create --name llmtest python=3.11
 ```bash
 conda activate llmtest
 ```
+After activation of your conda environment, confirm python 3.11.x is installed
+```bash
+python --version
+```
+
 - Get dependencies to the environment. Run the following in the terminal after activating the conda environment
 ```bash
 pip install -r requirements.txt
@@ -88,6 +93,8 @@ Create a .env files and insert your keys there. Use the [.env.sample](.env.sampl
 - PandasAI.ipynb  -> Notebook sample about [PandasAI](https://docs.pandas-ai.com/)
 - DuckDBAI.ipynb  -> Notebook sample for [DuckDB-NSQL](https://huggingface.co/motherduckdb/DuckDB-NSQL-7B-v0.1-GGUF)
 - DuckDBAI2.ipynb  -> Notebook sample for [DuckDB-NSQL](https://huggingface.co/motherduckdb/DuckDB-NSQL-7B-v0.1-GGUF) served by Ollama
+- Langchain-Wikipedia.ipynb -> Notebook sample showing how to use the Wikipedia Retriever in Langchain
+- Lanchain-Chromadb.ipynb -> Notebook sample using Langchain with ChromaDB for RAG
 - chat.py. This is a [Streamlit](https://streamlit.io/) application that uses Ollama in a chat application. The following command is used to run it:
 ```bash
 streamlit run chat.py
@@ -95,8 +102,8 @@ streamlit run chat.py
 
 # Ollama
 Some tests are using Ollama to run local models. Instructions to install Ollama can be found at [https://ollama.com/](https://ollama.com/) with the following models:
-- openchat:7b-v3.5-0106-q5_K_M
-- mistral
+- llama3:8b-instruct-q8_0
+- nomic-embed-text:latest
 
 # Limitations
-- GitHub Codespaces can be with [PandasAI.ipynb](./PandasAI.ipynb) but will not work with [DuckDBAI.ipynb](./DuckDBAI.ipynb) or [DuckDBAI2.ipynb](./DuckDBAI2.ipynb) because of size limitations
+- GitHub Codespaces can be used with [PandasAI.ipynb](./PandasAI.ipynb) but will not work with [DuckDBAI.ipynb](./DuckDBAI.ipynb) or [DuckDBAI2.ipynb](./DuckDBAI2.ipynb) because of size limitations

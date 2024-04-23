@@ -6,6 +6,7 @@ cache/
 exports/
 *.db
 *.db.wal
+vectordb/
 
 # LLM Model files
 *.gguf

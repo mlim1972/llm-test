@@ -52,6 +52,7 @@ pip install --upgrade pip
 output=$(pip list)
 if echo "$output" | grep -q "streamlit"; then
   echo "Dependencies are already installed."
+  pip install -r requirements.txt
 else
   echo "Missing dependencies. Running: pip install -r requirements..."
   pip install -r requirements.txt
