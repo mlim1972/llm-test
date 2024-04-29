@@ -95,6 +95,8 @@ Create a .env files and insert your keys there. Use the [.env.sample](.env.sampl
 - DuckDBAI2.ipynb  -> Notebook sample for [DuckDB-NSQL](https://huggingface.co/motherduckdb/DuckDB-NSQL-7B-v0.1-GGUF) served by Ollama
 - Langchain-Wikipedia.ipynb -> Notebook sample showing how to use the Wikipedia Retriever in Langchain
 - Lanchain-Chromadb.ipynb -> Notebook sample using Langchain with ChromaDB for RAG
+- OllamaNotebook.ipynb -> Notebook sample showing how to use the 
+[Ollama API](https://pypi.org/project/ollama/) to call the Chat and Generate endpoints
 - chat.py. This is a [Streamlit](https://streamlit.io/) application that uses Ollama in a chat application. The following command is used to run it:
 ```bash
 streamlit run chat.py
@@ -117,7 +119,15 @@ Both DuckDB and Pandas notebook objective is show how we can use LLMs to query a
 The Langchain notebooks are example using langchain for document retrieval and RAG.
 
 - Langchain-Wikipedia.ipynb. This notebook shows an example of retrieving Wikipedia results and answering questions from the results.
-- Langchain-ChromaDB.ipynb. This notebook is an example of RAG. It uses an embedding model to create embeddings from documents. ChromaDB is used as the Vector Store and finally, it uses Ollama (and other providers) to respond to users inquiries.
+- Langchain-ChromaDB.ipynb. This notebook is an example of RAG. It uses an embedding model to create embeddings from documents. ChromaDB is used as the Vector Store and finally, it uses Ollama (and other providers) to respond to users inquiries. In addition, this notebook uses Ollama directly attaching the
+prompt and embeddings w/o Langchain chains.
+
+### Ollama Notebook
+The Ollama notebook is an example to call Ollama using the two endpoints: chat and generate.
+
+- OllamaNotbook.ipynb. The notebook uses Ollama API to call the localhost 
+ollama server to interact with the Chat and Generate endpoint. In addition,
+it also shows how to retrieve the response with and without streaming.
 
 
 # Ollama
