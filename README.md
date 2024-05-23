@@ -86,6 +86,9 @@ Create a .env files and insert your keys there. Use the [.env.sample](.env.sampl
 - [OpenAI Dashboard](https://platform.openai.com/api-keys)
 - [Groq Console](https://console.groq.com/keys)
 - [Anthropic Console](https://console.anthropic.com/settings/keys)
+- [Cohere](https://cohere.com/)
+- [NVidia](https://build.nvidia.com/explore/discover)
+- [PandasAI](https://www.pandabi.ai/)
 
 
 # Files
